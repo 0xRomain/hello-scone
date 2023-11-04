@@ -48,6 +48,8 @@
 - 4. publish the new created image
     - `docker push romaintalentlayer/tee-scone-hello-world:1.0.0-test`
     - notice: tee-debug flag in the image name, the built image is actually in TEE debug mode, this allows you to have some debug features while developping the app. Once you are happy with the debug app, contact us to go to production!
+- 5. Deploy the TEE app on iExec
+    - prepare: `iexec app init --tee`
 
 
 ## how it works
