@@ -13,6 +13,6 @@
     "name": "node-hello-world",
     "type": "DOCKER",
     "multiaddr": "romaintalentlayer/node-hello-world:1.0.0",
-    "checksum": "0xaea3f77f09567fa0da20b86d9b7dac3ef958b7d4751a37cfa7cd7851f57ac191"
+    "checksum": "0x3eb61f88481958ea580392f5a7b74317a7b077840009bfe6bccc5c06a2547b81"
   }
 }

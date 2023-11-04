@@ -16,6 +16,7 @@
 - 3. push and publish the docker image on docker hub
     - `./tests/publish.sh 1.0.0`
     - check on https://hub.docker.com/u/romaintalentlayer
+    - update the iexec.json with the new docker image digest `"checksum": "0x3eb61f88481958ea580392f5a7b74317a7b077840009bfe6bccc5c06a2547b81"`
 
 
 ## how it works
