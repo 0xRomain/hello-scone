@@ -25,6 +25,7 @@
         - from explorer: `https://explorer.iex.ec/bellecour/deal/0x37957105bde93f73cb7e1b41bd42b6e5f234da4d2829cc5c575c61a8779cd51c`
         - or cli: `iexec deal show 0x37957105bde93f73cb7e1b41bd42b6e5f234da4d2829cc5c575c61a8779cd51c`
     - debug: `iexec task debug <taskid> --logs --chain bellecour`
+    - !STUCK: stay pending for ever
 - 6. get the result `iexec task show <taskid> --download my-result --chain bellecour`
     - unzip it: `unzip my-result.zip -d my-result`
     - display it: `cat my-result/result.txt`
@@ -41,6 +42,12 @@
     - link to the website don't show any register possibility ? 
     - I created an account on the gitlab https://gitlab.scontain.com/users/sign_in#login-pane, is it what we need ? 
 - 2. Prepare app, create sconify.sh
+- 3. execute sconify.sh
+    - this aims to wrap our own docker application into scone
+    - !STUCK: access denied, I don't have access to the registry of scone
+- 4. publish the new created image
+    - `docker push romaintalentlayer/tee-scone-hello-world:1.0.0-test`
+    - notice: tee-debug flag in the image name, the built image is actually in TEE debug mode, this allows you to have some debug features while developping the app. Once you are happy with the debug app, contact us to go to production!
 
 
 ## how it works
@@ -70,4 +77,4 @@
 - Issue 1:
     - run: `iexec app run --args test --watch --chain bellecour`
     - error: `✖ Command "iexec app run" failed with Error: Request requirements check failed: SMS at https://sms.scone-prod.v8-bellecour.iex.ec didn't answered (If you consider this is not an issue, use --skip-preflight-check to skip preflight requirement check)`
-    - what is it ?
+    - what is it ? it was ok on first run.
