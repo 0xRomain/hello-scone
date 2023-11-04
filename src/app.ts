@@ -1,26 +1,30 @@
-const fsPromises = require("fs").promises;
-const figlet = require("figlet");
+import * as fs from "fs/promises";
+import figlet from "figlet";
 
-const iexecOut = process.env.IEXEC_OUT;
-const iexecIn = process.env.IEXEC_IN;
+const iexecOut: string | undefined = process.env.IEXEC_OUT;
+const iexecIn: string | undefined = process.env.IEXEC_IN;
 
 (async () => {
     try {
         // Write hello to fs
-        let text =
+        let text: string =
             process.argv.length > 2
                 ? `Hello, ${process.argv[2]}!`
                 : "Hello, World";
         text = `${figlet.textSync(text)}\n${text}`; // Let's add some art for e.g.
 
         // Append some results
-        await fsPromises.writeFile(`${iexecOut}/result.txt`, text);
+        if (!iexecOut) {
+            throw new Error("Environment variable IEXEC_OUT is not set.");
+        }
+
+        await fs.writeFile(`${iexecOut}/result.txt`, text);
         console.log(text);
         // Declare everything is computed
         const computedJsonObj = {
             "deterministic-output-path": `${iexecOut}/result.txt`,
         };
-        await fsPromises.writeFile(
+        await fs.writeFile(
             `${iexecOut}/computed.json`,
             JSON.stringify(computedJsonObj)
         );
@@ -29,11 +33,3 @@ const iexecIn = process.env.IEXEC_IN;
         process.exit(1);
     }
 })();
-
-/* Try
-Basic:
-mkdir -p /tmp/iexec_out && IEXEC_OUT=/tmp/iexec_out IEXEC_IN=/tmp/iexec_in node app.js Alice
-
-Tee:
-mkdir -p /tmp/iexec_out && IEXEC_OUT=/tmp/iexec_out IEXEC_IN=../tee/confidential-assets node app.js Alice
-*/

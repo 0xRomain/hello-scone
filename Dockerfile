@@ -1,8 +1,8 @@
 FROM node:18
 
 WORKDIR /app
-COPY package*.json ./
-RUN npm ci --production
-COPY ./src .
+COPY . .
+RUN npm install
+RUN npm run build
 
-ENTRYPOINT [ "node", "/app/app.js"]
+ENTRYPOINT [ "node", "/app/dist/app.js"]

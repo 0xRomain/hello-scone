@@ -9,7 +9,7 @@
 ## step by step 
 
 - 1. initiate a wallet and a the project: https://protocol.docs.iex.ec/for-developers/quick-start-for-developers
-- 2. create a dockerfile, and an app.js
+- 2. create a dockerfile, and a basic function in app.js
     - To test it locally: 
         - `./tests/build.sh`
         - `./tests/run.sh` || `./tests/run.sh test`
