@@ -33,11 +33,14 @@
 
 ## Protecting the app with TEE
 
-- Important: Today, it is not possible to build a TEE application for a SGX enclave from a laptop based on an ARM architecture like the latest MacBook Pro devices. => Only for node right?
+- Before: 
+    - Important: Today, it is not possible to build a TEE application for a SGX enclave from a laptop based on an ARM architecture like the latest MacBook Pro devices. => Only for node right?
+    - use SCONE: As we mentioned earlier, the advantage of using SCONE is the ability to make the application Intel® SGX-enabled without changing the source code
 
 - 1. Create a free account on scone 
     - link to the website don't show any register possibility ? 
     - I created an account on the gitlab https://gitlab.scontain.com/users/sign_in#login-pane, is it what we need ? 
+- 2. Prepare app, create sconify.sh
 
 
 ## how it works
