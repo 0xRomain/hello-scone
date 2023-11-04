@@ -8,14 +8,23 @@
 
 ## step by step 
 
-- initiate a wallet and a the project: https://protocol.docs.iex.ec/for-developers/quick-start-for-developers
-- 
+- 1. initiate a wallet and a the project: https://protocol.docs.iex.ec/for-developers/quick-start-for-developers
+- 2. create a dockerfile, and an app.js
+    - To test it locally: 
+        - `./tests/build.sh`
+        - `./tests/run.sh` || `./tests/run.sh test`
 
 
 ## how it works
 
-- it's a docker app that can used any language
-- node gonna
+- The applications deployed on iExec are Smart Contracts identified by their Ethereum address and referencing a public docker image.
+- iExec Node gonna
     - mount the app
     - use Secret Management Service (SMS)
     - to get data protected link to the request
+
+
+## Questions
+
+- step 1.
+    - why doing the storage init ? 
