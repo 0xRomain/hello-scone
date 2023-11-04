@@ -45,6 +45,7 @@
 - 3. execute sconify.sh
     - this aims to wrap our own docker application into scone
     - !STUCK: access denied, I don't have access to the registry of scone
+    - sent an email to scone to have access
 - 4. publish the new created image
     - `docker push romaintalentlayer/tee-scone-hello-world:1.0.0-test`
     - notice: tee-debug flag in the image name, the built image is actually in TEE debug mode, this allows you to have some debug features while developping the app. Once you are happy with the debug app, contact us to go to production!
@@ -53,6 +54,11 @@
     - update with our own config: 
         - mrenclave > heapSize: heap size in bytes, update it with --heap option value used in sconify.sh script during TEE image build: how do we got heapSize and fingerprint ?
         - mrenclave > fingerprint of the enclave code (mrenclave), without 0x prefix, see how to retrieve it below
+- 6. deploy the app `iexec app deploy --chain bellecour`
+- 7. run the app
+    - initialize the storage: `iexec storage init --chain bellecour --tee-framework scone`
+    - run: `iexec app run --tag tee,scone --workerpool debug-v8-bellecour.main.pools.iexec.eth --watch --chain bellecour`
+        - Notice: in order to run a TEE-debug app you will also need to select a debug workerpool, use the debug workerpool debug-v8-bellecour.main.pools.iexec.eth.
 
 ## how it works
 
