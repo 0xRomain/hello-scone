@@ -1,5 +1,5 @@
 {
-  "description": "My iExec resource description, must be at least 150 chars long in order to pass the validation checks. Describe your application, dataset or workerpool to your users",
+  "description": "Typescript hello world iExec",
   "license": "MIT",
   "author": "?",
   "social": {
@@ -10,9 +10,9 @@
   "buyConf": {},
   "app": {
     "owner": "0x9fd8461adfb562c2f899F7a90916258Accbe644F",
-    "name": "hello-world",
+    "name": "node-hello-world",
     "type": "DOCKER",
-    "multiaddr": "iexechub/python-hello-world:7.0.5",
+    "multiaddr": "romaintalentlayer/node-hello-world:1.0.0",
     "checksum": "0xaea3f77f09567fa0da20b86d9b7dac3ef958b7d4751a37cfa7cd7851f57ac191"
   }
 }

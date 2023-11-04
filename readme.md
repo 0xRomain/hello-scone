@@ -13,6 +13,9 @@
     - To test it locally: 
         - `./tests/build.sh`
         - `./tests/run.sh` || `./tests/run.sh test`
+- 3. push and publish the docker image on docker hub
+    - `./tests/publish.sh 1.0.0`
+    - check on https://hub.docker.com/u/romaintalentlayer
 
 
 ## how it works
