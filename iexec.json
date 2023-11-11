@@ -10,16 +10,9 @@
   "buyConf": {},
   "app": {
     "owner": "0x9fd8461adfb562c2f899F7a90916258Accbe644F",
-    "name": "hello-world-scone",
+    "name": "node-hello-world",
     "type": "DOCKER",
-    "multiaddr": "romaintalentlayer/tee-scone-node-hello-world:1.0.0-test",
-    "checksum": "<0xchecksumofdockerimage>",
-    "mrenclave": {
-      "framework": "SCONE",
-      "version": "v5",
-      "entrypoint": "node /app/dist/app.js",
-      "heapSize": 1073741824, 
-      "fingerprint": "<mrenclave>"
-    }
+    "multiaddr": "romaintalentlayer/node-hello-world:1.0.0",
+    "checksum": "0x8a42be6f458068b1dbc7fd7318cae93fe10bfc3be08d0403f027c33861725002"
   }
 }

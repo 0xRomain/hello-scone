@@ -12,6 +12,19 @@
 - sconify support only node 14
 - to sconify an app, you need to ask access to the sconify registry first
 
+## CLI commands
+
+### Test locally
+
+- Build: `./tests/build.sh`
+- Test: `./tests/run.sh` || `./tests/run.sh test`
+- Publish: `./tests/publish.sh 1.0.0`
+
+### Test on iExec
+
+- Deploy: `iexec app deploy --chain bellecour`
+- Run: `iexec app run --args test --watch --chain bellecour --workerpool debug-v8-bellecour.main.pools.iexec.eth`
+
 ## Create my application step by step
 
 - 1. initiate a wallet and the project: https://protocol.docs.iex.ec/for-developers/quick-start-for-developers
@@ -106,3 +119,7 @@
     - error: `exec /usr/local/bin/node: exec format error` 
     - note: seems to be linked to the fact that i build my docker image on a macbook m1
     - solution: ? 
+
+## Improvement proposal
+
+- Could be good when deploying the app to have the possibility to choose the iexec.json file. Like that we can test easly form the same repo with and without sconify.

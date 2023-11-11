@@ -1,0 +1,25 @@
+{
+  "description": "Typescript hello world iExec x Scone",
+  "license": "MIT",
+  "author": "?",
+  "social": {
+    "website": "?",
+    "github": "?"
+  },
+  "logo": "logo.png",
+  "buyConf": {},
+  "app": {
+    "owner": "0x9fd8461adfb562c2f899F7a90916258Accbe644F",
+    "name": "hello-world-scone",
+    "type": "DOCKER",
+    "multiaddr": "romaintalentlayer/tee-scone-node-hello-world:1.0.0-test",
+    "checksum": "<0xchecksumofdockerimage>",
+    "mrenclave": {
+      "framework": "SCONE",
+      "version": "v5",
+      "entrypoint": "node /app/dist/app.js",
+      "heapSize": 1073741824, 
+      "fingerprint": "<mrenclave>"
+    }
+  }
+}
