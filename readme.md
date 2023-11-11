@@ -20,11 +20,11 @@
     - update the iexec.json with the new docker image digest `"checksum": "0x3eb61f88481958ea580392f5a7b74317a7b077840009bfe6bccc5c06a2547b81"`
 - 4. deploy the app `iexec app deploy --chain bellecour`
     - check: `iexec app show --chain bellecour`
-- 5. run the app on iExec `iexec app run --args test --watch --chain bellecour`
+- 5. run the app on iExec `iexec app run --args test --watch --chain bellecour --workerpool debug-v8-bellecour.main.pools.iexec.eth`
     - follow progress by deal: 
         - from explorer: `https://explorer.iex.ec/bellecour/deal/0x37957105bde93f73cb7e1b41bd42b6e5f234da4d2829cc5c575c61a8779cd51c`
         - or cli: `iexec deal show 0x37957105bde93f73cb7e1b41bd42b6e5f234da4d2829cc5c575c61a8779cd51c`
-    - debug: `iexec task debug <taskid> --logs --chain bellecour`
+    - debug: `iexec task debug 0x40726e66074793423e72c7e320af7a48a3b9d8f1105e7555251c44db9da56587 --logs --chain bellecour`
     - !STUCK: stay pending for ever
 - 6. get the result `iexec task show <taskid> --download my-result --chain bellecour`
     - unzip it: `unzip my-result.zip -d my-result`
@@ -41,11 +41,14 @@
 - 1. Create a free account on scone 
     - link to the website don't show any register possibility ? 
     - I created an account on the gitlab https://gitlab.scontain.com/users/sign_in#login-pane, is it what we need ? 
+    - apparently yes, got access few days after
 - 2. Prepare app, create sconify.sh
 - 3. execute sconify.sh
     - this aims to wrap our own docker application into scone
     - !STUCK: access denied, I don't have access to the registry of scone
     - sent an email to scone to have access
+    - received access, but still got access denied
+        - Error response from daemon: Head "https://registry.scontain.com/v2/sconecuratedimages/node/manifests/14.4.0-alpine3.11": denied: access forbidden. Unable to find image 'registry.scontain.com/scone-production/iexec-sconify-image:5.7.5-v12' locally. docker: Error response from daemon: Head "https://registry.scontain.com/v2/scone-production/iexec-sconify-image/manifests/5.7.5-v12": denied: access forbidden.
 - 4. publish the new created image
     - `docker push romaintalentlayer/tee-scone-hello-world:1.0.0-test`
     - notice: tee-debug flag in the image name, the built image is actually in TEE debug mode, this allows you to have some debug features while developping the app. Once you are happy with the debug app, contact us to go to production!
@@ -86,5 +89,14 @@
 
 - Issue 1:
     - run: `iexec app run --args test --watch --chain bellecour`
+    - error: stay in pending for ever
+    - solution: specify a workerpool runned by iExec `iexec app run --args test --watch --chain bellecour --workerpool debug-v8-bellecour.main.pools.iexec.eth`
+- Issue 2:
+    - run: `iexec app run --args test --watch --chain bellecour`
     - error: `✖ Command "iexec app run" failed with Error: Request requirements check failed: SMS at https://sms.scone-prod.v8-bellecour.iex.ec didn't answered (If you consider this is not an issue, use --skip-preflight-check to skip preflight requirement check)`
     - what is it ? it was ok on first run.
+- Issue 3: 
+    - run: `iexec app run --args test --watch --chain bellecour --workerpool debug-v8-bellecour.main.pools.iexec.eth`
+    - error: `exec /usr/local/bin/node: exec format error` 
+    - note: seems to be linked to the fact that i build my docker image on a macbook m1
+    - solution: ? 
