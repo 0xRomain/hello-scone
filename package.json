@@ -12,6 +12,10 @@
   },
   "author": "",
   "license": "ISC",
+  "engines": {
+    "node": ">=14.0.0 <15.0.0",
+    "npm": ">=6.0.0 <7.0.0"
+  },
   "dependencies": {
     "figlet": "^1.7.0"
   },

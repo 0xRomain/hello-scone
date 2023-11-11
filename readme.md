@@ -7,6 +7,11 @@
 - web3mail: https://github.com/iExecBlockchainComputing/web3mail-sdk/tree/main/dapp/src
 - block exploirer bellecour: https://blockscout-bellecour.iex.ec/
 
+## Important things to know: 
+
+- sconify support only node 14
+- to sconify an app, you need to ask access to the sconify registry first
+
 ## Create my application step by step
 
 - 1. initiate a wallet and the project: https://protocol.docs.iex.ec/for-developers/quick-start-for-developers
@@ -47,8 +52,9 @@
     - this aims to wrap our own docker application into scone
     - !STUCK: access denied, I don't have access to the registry of scone
     - sent an email to scone to have access
-    - received access, but still got access denied
-        - Error response from daemon: Head "https://registry.scontain.com/v2/sconecuratedimages/node/manifests/14.4.0-alpine3.11": denied: access forbidden. Unable to find image 'registry.scontain.com/scone-production/iexec-sconify-image:5.7.5-v12' locally. docker: Error response from daemon: Head "https://registry.scontain.com/v2/scone-production/iexec-sconify-image/manifests/5.7.5-v12": denied: access forbidden.
+    - received access, but still got access denied 
+        - execute succefully: `docker login registry.scontain.com`
+        - ```Error response from daemon: pull access denied for registry.scontain.com/sconecuratedimages/node, repository does not exist or may require 'docker login': denied: requested access to the resource is denied. Unable to find image 'registry.scontain.com/scone-production/iexec-sconify-image:5.7.5-v12' locally. docker: Error response from daemon: pull access denied for registry.scontain.com/scone-production/iexec-sconify-image, repository does not exist or may require 'docker login': denied: requested access to the resource is denied.```
 - 4. publish the new created image
     - `docker push romaintalentlayer/tee-scone-hello-world:1.0.0-test`
     - notice: tee-debug flag in the image name, the built image is actually in TEE debug mode, this allows you to have some debug features while developping the app. Once you are happy with the debug app, contact us to go to production!
