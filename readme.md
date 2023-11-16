@@ -9,7 +9,7 @@
 
 ## Important things to know: 
 
-- sconify support only node 14
+- sconify support only node <= 16
 - to sconify an app, you need to ask access to the sconify registry first
 
 ## CLI commands
@@ -18,7 +18,7 @@
 
 - Build: `./tests/build.sh`
 - Test: `./tests/run.sh` || `./tests/run.sh test`
-- Publish: `./publish.sh 1.0.0`
+- Publish: `./publish.sh 1.0.0` || `./publishFromMac.sh 1.0.0`
 
 ### Test on iExec
 
@@ -33,7 +33,8 @@
         - `./tests/build.sh`
         - `./tests/run.sh` || `./tests/run.sh test`
 - 3. push and publish the docker image on docker hub
-    - `./publish.sh 1.0.0`
+    - on mac need first to install buildkit to then build docker image in linux/arm64 `brew install buildkit`
+    - `./publish.sh 1.0.0` or for mac `./publishFromMac.sh 1.0.0`
     - check on https://hub.docker.com/u/romaintalentlayer
     - update the iexec.json with the new docker image digest `"checksum": "0x3eb61f88481958ea580392f5a7b74317a7b077840009bfe6bccc5c06a2547b81"`
 - 4. deploy the app `iexec app deploy --chain bellecour`
@@ -42,7 +43,7 @@
     - follow progress by deal: 
         - from explorer: `https://explorer.iex.ec/bellecour/deal/0x37957105bde93f73cb7e1b41bd42b6e5f234da4d2829cc5c575c61a8779cd51c`
         - or cli: `iexec deal show 0x37957105bde93f73cb7e1b41bd42b6e5f234da4d2829cc5c575c61a8779cd51c`
-    - debug: `iexec task debug 0x40726e66074793423e72c7e320af7a48a3b9d8f1105e7555251c44db9da56587 --logs --chain bellecour`
+    - debug: `iexec task debug 0x24cf7dba04f96d5fc7480683f3f8ae4fd432669c40c22c128a39260b38bbeda3 --logs --chain bellecour`
     - !STUCK: stay pending for ever
 - 6. get the result `iexec task show <taskid> --download my-result --chain bellecour`
     - unzip it: `unzip my-result.zip -d my-result`
@@ -102,6 +103,8 @@
     - why doing the storage init ? 
 - step 5. 
     - why it's not executing ? 
+- only node 14 with sconify ? seems weird
+- why issue 3 ?
 
 
 ## Troubleshooting
@@ -119,6 +122,7 @@
     - error: `exec /usr/local/bin/node: exec format error` 
     - note: seems to be linked to the fact that i build my docker image on a macbook m1
     - solution: ? 
+        - `brew install buildkit`
 
 ## Improvement proposal
 
