@@ -9,17 +9,28 @@
   "logo": "logo.png",
   "buyConf": {},
   "app": {
-    "owner": "0x9fd8461adfb562c2f899F7a90916258Accbe644F",
+    "owner": "0xa6AaeF385217f77b8c69306c139d9cE742f9AFcE",
     "name": "hello-world-scone",
     "type": "DOCKER",
-    "multiaddr": "romaintalentlayer/tee-scone-node-hello-world:1.0.7-test",
-    "checksum": "<0xchecksumofdockerimage>",
+    "multiaddr": "romaintalentlayer/tee-scone-node-hello-world:1.0.8-test",
+    "checksum": "0xf5a8a15fd36cf709f2251dcbf90db8dcd9356864704e5a0b6282386e8e4f1b76",
     "mrenclave": {
       "framework": "SCONE",
       "version": "v5",
       "entrypoint": "node /app/dist/app.js",
-      "heapSize": 1073741824, 
-      "fingerprint": "<mrenclave>"
+      "heapSize": 1073741824,
+      "fingerprint": "e75cb4e70e57711a7ded1414b1b8331151c7fb6688678f78c9d1fe99247417e1"
+    }
+  },
+  "order": {
+    "apporder": {
+      "app": "0x78c75A02D05977BF6C6766a31a9F21304C48Ce41",
+      "appprice": "0",
+      "volume": "1000000",
+      "tag": ["scone", "tee"],
+      "datasetrestrict": "0x0000000000000000000000000000000000000000",
+      "workerpoolrestrict": "0x0000000000000000000000000000000000000000",
+      "requesterrestrict": "0x0000000000000000000000000000000000000000"
     }
   }
 }

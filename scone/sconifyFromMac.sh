@@ -9,12 +9,12 @@ IMG_NAME=tee-scone-node-hello-world
 IMG_FROM=romaintalentlayer/node-hello-world:1.0.6
 IMG_TO=romaintalentlayer/${IMG_NAME}:1.0.6-test
 
-# docker pull registry.scontain.com/sconecuratedimages/node:14.4.0-alpine3.11
+docker pull registry.scontain.com/sconecuratedimages/node:16-alpine3.15
 
 # Run the sconifier to build the TEE image based on the non-TEE image
 docker run --platform=linux/amd64 -it --rm \
             -v /var/run/docker.sock:/var/run/docker.sock \
-            docker.io/luiscarlosiexec/iexec-sconify-image:5.7.5-v12 \
+            registry.scontain.com/sconecuratedimages/iexec-sconify-image:5.9.0-rc-m1602 \
             sconify_iexec \
             --name=${IMG_NAME} \
             --from=${IMG_FROM} \
