@@ -44,12 +44,16 @@ export default async function handler(
       protectedData: protectedData as string,
       app: appAddress,
       maxPrice: 0,
-      args: name as string,
-      inputFiles: undefined,
-      secrets: undefined
+      args: 'iExec',
+      secrets: {
+        1: 'ProcessProtectedData test subject',
+        2: 'email content for test processData',
+      },
     }
     
     const taskId = await dataProtector.processProtectedData(args);
+
+    // TODO: return task id directly and then long pulling to check if result is there
 
     const iexec = new IExec({ ethProvider: web3Provider });
     const results = await iexec.task.fetchResults(taskId);
