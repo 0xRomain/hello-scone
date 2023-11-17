@@ -1,5 +1,6 @@
 import { IExecDataProtector } from "@iexec/dataprotector";
 import { useWeb3Modal } from "@web3modal/wagmi/react";
+import axios from "axios";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { Inter } from "next/font/google";
 import { useAccount } from "wagmi";
@@ -53,6 +54,12 @@ export default function Home() {
                 numberOfAccess: 99999999999,
             });
             console.log({ grantedAccess });
+
+            const result = await axios.get(
+                `/api/hello?name=${values.name}&protectedData=${protectedData.address}`
+            );
+
+            console.log({ result });
         } catch (error) {
             console.log(error);
         } finally {
