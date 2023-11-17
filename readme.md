@@ -9,7 +9,7 @@
 
 ## Important things to know: 
 
-- sconify support only node <= 14
+- sconify support only node <= 14 or node 16 with experimental scone image
 - to sconify an app, you need to ask access to the sconify registry first
 
 ## CLI commands
