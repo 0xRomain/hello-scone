@@ -12,8 +12,8 @@
     "owner": "0x9fd8461adfb562c2f899F7a90916258Accbe644F",
     "name": "node-hello-world",
     "type": "DOCKER",
-    "multiaddr": "romaintalentlayer/node-hello-world:1.0.6",
-    "checksum": "0x044e7b66a285571570dbcd11d808b44ad21f215ddf61666ab1c42b926d7fc383"
+    "multiaddr": "romaintalentlayer/node-hello-world:1.0.7",
+    "checksum": "0xe1a3e45e5dc9dcd3f3b0875f815ebec4076cdd17c06f7fc877a0d77815f2a15a"
   },
   "order": {
     "apporder": {
@@ -22,6 +22,15 @@
       "volume": "1000000",
       "tag": [],
       "datasetrestrict": "0x0000000000000000000000000000000000000000",
+      "workerpoolrestrict": "0x0000000000000000000000000000000000000000",
+      "requesterrestrict": "0x0000000000000000000000000000000000000000"
+    },
+    "datasetorder": {
+      "dataset": "0x0000000000000000000000000000000000000000",
+      "datasetprice": "0",
+      "volume": "1000000",
+      "tag": [],
+      "apprestrict": "0x0000000000000000000000000000000000000000",
       "workerpoolrestrict": "0x0000000000000000000000000000000000000000",
       "requesterrestrict": "0x0000000000000000000000000000000000000000"
     }

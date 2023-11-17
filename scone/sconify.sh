@@ -5,16 +5,18 @@ ENTRYPOINT="node /app/dist/app.js"
 
 # Declare image related variables
 IMG_NAME=tee-scone-node-hello-world
-IMG_FROM=romaintalentlayer/node-hello-world:1.0.6
-IMG_TO=romaintalentlayer/${IMG_NAME}:1.0.6-test
+IMG_FROM=romaintalentlayer/node-hello-world:1.0.7
+IMG_TO=romaintalentlayer/${IMG_NAME}:1.0.7-test
 
+# Do we need that ? 
 # docker pull registry.scontain.com/sconecuratedimages/node:14.4.0-alpine3.11
 
 # Run the sconifier to build the TEE image based on the non-TEE image
 docker run -it --rm \
             -v /var/run/docker.sock:/var/run/docker.sock \
-            # registry.scontain.com/sconecuratedimages/iexec-sconify-image:5.9.0-rc-m1602 \ # for node 16
-            registry.scontain.com/scone-production/iexec-sconify-image:5.7.5-v12 \
+            # for node 16:
+            registry.scontain.com/sconecuratedimages/iexec-sconify-image:5.9.0-rc-m1602 \ 
+            # registry.scontain.com/scone-production/iexec-sconify-image:5.7.5-v12 \
             sconify_iexec \
             --name=${IMG_NAME} \
             --from=${IMG_FROM} \

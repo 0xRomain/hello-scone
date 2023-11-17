@@ -46,7 +46,7 @@
     - follow progress by deal: 
         - from explorer: `https://explorer.iex.ec/bellecour/deal/0x37957105bde93f73cb7e1b41bd42b6e5f234da4d2829cc5c575c61a8779cd51c`
         - or cli: `iexec deal show 0x37957105bde93f73cb7e1b41bd42b6e5f234da4d2829cc5c575c61a8779cd51c`
-    - debug: `iexec task debug 0x2f0df72161039af809ee1aa69bb7f0bc4b325bb0eae17ab40b3698adbbe310c8 --logs --chain bellecour`
+    - debug: `iexec task debug 0x3e2b84316f44614bdbb1817d5106a07b98fbc95d747472bff2a0246b907df732 --logs --chain bellecour`
     - !STUCK: stay pending for ever
     - !STUCK: submitting deal stay for ever: 
         - We tried to create the order manually but still the same issue: 
@@ -91,6 +91,12 @@
     - run: `iexec app run --tag tee,scone --workerpool debug-v8-bellecour.main.pools.iexec.eth --watch --chain bellecour`
         - Notice: use prod: `prod-v8-bellecour.main.pools.iexec.eth`
         - Notice: in order to run a TEE-debug app you will also need to select a debug workerpool, use the debug workerpool debug-v8-bellecour.main.pools.iexec.eth.
+
+## Dataset 
+
+- Learn more: https://protocol.docs.iex.ec/for-developers/technical-references/application-io#dataset
+- Important: 
+    - The dataset file is downloaded and decrypted on the fly in the IEXEC_IN directory. It gets its name exposed to the application via IEXEC_DATASET_FILENAME.
 
 ## how it works
 

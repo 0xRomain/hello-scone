@@ -12,7 +12,7 @@
     "owner": "0x9fd8461adfb562c2f899F7a90916258Accbe644F",
     "name": "hello-world-scone",
     "type": "DOCKER",
-    "multiaddr": "romaintalentlayer/tee-scone-node-hello-world:1.0.0-test",
+    "multiaddr": "romaintalentlayer/tee-scone-node-hello-world:1.0.7-test",
     "checksum": "<0xchecksumofdockerimage>",
     "mrenclave": {
       "framework": "SCONE",
