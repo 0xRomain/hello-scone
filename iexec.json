@@ -12,8 +12,8 @@
     "owner": "0x9fd8461adfb562c2f899F7a90916258Accbe644F",
     "name": "node-hello-world",
     "type": "DOCKER",
-    "multiaddr": "romaintalentlayer/node-hello-world:1.0.4",
-    "checksum": "0x039e83bfe43224233c77e8b200c9f06987907ec31d318e79b4a13aacc036c3cf"
+    "multiaddr": "romaintalentlayer/node-hello-world:1.0.6",
+    "checksum": "0x044e7b66a285571570dbcd11d808b44ad21f215ddf61666ab1c42b926d7fc383"
   },
   "order": {
     "apporder": {

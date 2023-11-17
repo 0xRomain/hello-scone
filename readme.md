@@ -43,7 +43,7 @@
     - follow progress by deal: 
         - from explorer: `https://explorer.iex.ec/bellecour/deal/0x37957105bde93f73cb7e1b41bd42b6e5f234da4d2829cc5c575c61a8779cd51c`
         - or cli: `iexec deal show 0x37957105bde93f73cb7e1b41bd42b6e5f234da4d2829cc5c575c61a8779cd51c`
-    - debug: `iexec task debug 0x99bd46c8e8678b4661164b5a1d43e237e351062959481b61eab73e4adc5adb4d --logs --chain bellecour`
+    - debug: `iexec task debug 0x2f0df72161039af809ee1aa69bb7f0bc4b325bb0eae17ab40b3698adbbe310c8 --logs --chain bellecour`
     - !STUCK: stay pending for ever
     - !STUCK: submitting deal stay for ever: 
         - We tried to create the order manually but still the same issue: 
@@ -127,8 +127,8 @@
     - run: `iexec app run --args test --watch --chain bellecour --workerpool debug-v8-bellecour.main.pools.iexec.eth`
     - error: `exec /usr/local/bin/node: exec format error` 
     - note: seems to be linked to the fact that i build my docker image on a macbook m1
-    - solution: ? 
-        - `brew install buildkit`
+    - solution: 
+        - from mac, use `--platform linux/amd64` to build the image
 
 ## Improvement proposal
 
