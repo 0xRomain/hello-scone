@@ -10,7 +10,7 @@ IEXEC_IN=/tmp/iexec_in
 docker run --rm \
         -e IEXEC_OUT=/iexec_out \
         -e IEXEC_IN=/iexec_in \
-        -e IEXEC_DATASET_FILENAME=data.zip \
+        -e IEXEC_DATASET_FILENAME=protectedData.zip \
         -v $IEXEC_OUT:/iexec_out \
         -v $IEXEC_IN:/iexec_in \
         node-hello-world $@
