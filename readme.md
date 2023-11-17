@@ -16,6 +16,9 @@
 
 ### Test locally
 
+- Init iexec_in folder: 
+    - `mkdir /tmp/iexec_in`
+    - `cp tests/protectedData.zip /tmp/iexec_in/protectedData.zip`
 - Build: `./tests/build.sh`
 - Test: `./tests/run.sh` || `./tests/run.sh test`
 - Publish: `./publish.sh 1.0.0` || `./publishFromMac.sh 1.0.0`

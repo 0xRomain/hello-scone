@@ -9,8 +9,7 @@ const dataFileName: string | undefined = (process.env.IEXEC_DATASET_FILENAME =
 
 (async () => {
     try {
-        // const name = await extractNameFromZipFile(`${iexecIn}/${dataFileName}`);
-        const name = "romain";
+        const name = await extractNameFromZipFile(`${iexecIn}/${dataFileName}`);
 
         // Write hello to fs
         let text: string =
