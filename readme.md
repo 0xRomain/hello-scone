@@ -43,8 +43,13 @@
     - follow progress by deal: 
         - from explorer: `https://explorer.iex.ec/bellecour/deal/0x37957105bde93f73cb7e1b41bd42b6e5f234da4d2829cc5c575c61a8779cd51c`
         - or cli: `iexec deal show 0x37957105bde93f73cb7e1b41bd42b6e5f234da4d2829cc5c575c61a8779cd51c`
-    - debug: `iexec task debug 0x24cf7dba04f96d5fc7480683f3f8ae4fd432669c40c22c128a39260b38bbeda3 --logs --chain bellecour`
+    - debug: `iexec task debug 0x99bd46c8e8678b4661164b5a1d43e237e351062959481b61eab73e4adc5adb4d --logs --chain bellecour`
     - !STUCK: stay pending for ever
+    - !STUCK: submitting deal stay for ever: 
+        - We tried to create the order manually but still the same issue: 
+            - `iexec order init --app`
+            - `iexec order sign --app && iexec order publish --app`
+            - The order is usefull to let someone else executing it
 - 6. get the result `iexec task show <taskid> --download my-result --chain bellecour`
     - unzip it: `unzip my-result.zip -d my-result`
     - display it: `cat my-result/result.txt`
@@ -81,6 +86,7 @@
 - 7. run the app
     - initialize the storage: `iexec storage init --chain bellecour --tee-framework scone`
     - run: `iexec app run --tag tee,scone --workerpool debug-v8-bellecour.main.pools.iexec.eth --watch --chain bellecour`
+        - Notice: use prod: `prod-v8-bellecour.main.pools.iexec.eth`
         - Notice: in order to run a TEE-debug app you will also need to select a debug workerpool, use the debug workerpool debug-v8-bellecour.main.pools.iexec.eth.
 
 ## how it works
