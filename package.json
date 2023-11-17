@@ -17,7 +17,8 @@
     "npm": ">=6.0.0 <7.0.0"
   },
   "dependencies": {
-    "figlet": "^1.7.0"
+    "figlet": "^1.7.0",
+    "jszip": "^3.10.1"
   },
   "devDependencies": {
     "@types/figlet": "^1.5.7",
