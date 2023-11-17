@@ -9,7 +9,7 @@
   "logo": "logo.png",
   "buyConf": {},
   "app": {
-    "owner": "0x9fd8461adfb562c2f899F7a90916258Accbe644F",
+    "owner": "0xa6AaeF385217f77b8c69306c139d9cE742f9AFcE",
     "name": "node-hello-world",
     "type": "DOCKER",
     "multiaddr": "romaintalentlayer/node-hello-world:1.0.7",

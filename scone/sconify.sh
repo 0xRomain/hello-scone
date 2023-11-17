@@ -14,9 +14,7 @@ IMG_TO=romaintalentlayer/${IMG_NAME}:1.0.7-test
 # Run the sconifier to build the TEE image based on the non-TEE image
 docker run -it --rm \
             -v /var/run/docker.sock:/var/run/docker.sock \
-            # for node 16:
             registry.scontain.com/sconecuratedimages/iexec-sconify-image:5.9.0-rc-m1602 \ 
-            # registry.scontain.com/scone-production/iexec-sconify-image:5.7.5-v12 \
             sconify_iexec \
             --name=${IMG_NAME} \
             --from=${IMG_FROM} \
