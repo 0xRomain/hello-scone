@@ -3,6 +3,7 @@ import { useWeb3Modal } from "@web3modal/wagmi/react";
 import axios from "axios";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { Inter } from "next/font/google";
+import { useEffect, useState } from "react";
 import { useAccount } from "wagmi";
 import * as Yup from "yup";
 
@@ -19,6 +20,20 @@ const initialValues: IFormValues = {
 export default function Home() {
     const account = useAccount();
     const { open: openConnectModal } = useWeb3Modal();
+    const [loading, setLoading] = useState(true);
+
+    // Tips to prevent nextJs error: Hydration failed because the initial UI does not match what was rendered on the server.
+    useEffect(() => {
+        setLoading(false);
+    }, []);
+
+    if (loading) {
+        return (
+        <div className='pt-16'>
+            <p>loading...</p>
+        </div>
+        );
+    }
 
     const validationSchema = Yup.object({
         name: Yup.string().required("Please provide a name"),
@@ -35,15 +50,23 @@ export default function Home() {
         }
     ) => {
         try {
-            console.log(values);
+            console.log({values});
 
             const provider = await account.connector?.getProvider();
             const dataProtector = new IExecDataProtector(provider);
+
+            console.log({account})
+
             const protectedData = await dataProtector.protectData({
                 data: {
                     name: values.name,
                 },
             });
+
+            // const protectedData = {
+            //     address: "0xEbDCB3F7018812C60023b7dBdD2B66A78b271855"
+            // }
+
             console.log({ protectedData });
             const grantedAccess = await dataProtector.grantAccess({
                 protectedData: protectedData.address,
@@ -106,7 +129,7 @@ export default function Home() {
                                         type="text"
                                         id="name"
                                         name="name"
-                                        className="mt-1 mb-1 block w-full rounded-xl border border-info bg-base-200 shadow-sm focus:ring-opacity-50"
+                                        className="mt-1 mb-1 block w-full rounded-xl border border-info bg-base-200 shadow-sm focus:ring-opacity-50 text-black"
                                         placeholder=""
                                     />
                                     <span className="text-red-900">
