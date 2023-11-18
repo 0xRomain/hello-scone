@@ -29,7 +29,7 @@
       "volume": "1000000",
       "tag": ["scone", "tee"],
       "datasetrestrict": "0x0000000000000000000000000000000000000000",
-      "workerpoolrestrict": "0x0000000000000000000000000000000000000000",
+      "workerpoolrestrict": "debug-v8-bellecour.main.pools.iexec.eth",
       "requesterrestrict": "0x0000000000000000000000000000000000000000"
     }
   }
