@@ -12,8 +12,8 @@
     "owner": "0xa6AaeF385217f77b8c69306c139d9cE742f9AFcE",
     "name": "hello-world-scone",
     "type": "DOCKER",
-    "multiaddr": "romaintalentlayer/tee-scone-node-hello-world:1.0.8-test",
-    "checksum": "0xf5a8a15fd36cf709f2251dcbf90db8dcd9356864704e5a0b6282386e8e4f1b76",
+    "multiaddr": "romaintalentlayer/tee-scone-node-hello-world:1.0.8",
+    "checksum": "0x58da710eb5fc28b4398621e1235f660fc542b7c92f963c78624d1098bb932aa4",
     "mrenclave": {
       "framework": "SCONE",
       "version": "v5",
@@ -24,12 +24,12 @@
   },
   "order": {
     "apporder": {
-      "app": "0x78c75A02D05977BF6C6766a31a9F21304C48Ce41",
+      "app": "0x15d2966575d03dA685bEB4ED90E3bf0a7AEDB2a5",
       "appprice": "0",
       "volume": "1000000",
       "tag": ["scone", "tee"],
       "datasetrestrict": "0x0000000000000000000000000000000000000000",
-      "workerpoolrestrict": "debug-v8-bellecour.main.pools.iexec.eth",
+      "workerpoolrestrict": "0x0000000000000000000000000000000000000000",
       "requesterrestrict": "0x0000000000000000000000000000000000000000"
     }
   }
