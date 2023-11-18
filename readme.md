@@ -46,7 +46,7 @@
     - follow progress by deal: 
         - from explorer: `https://explorer.iex.ec/bellecour/deal/0x37957105bde93f73cb7e1b41bd42b6e5f234da4d2829cc5c575c61a8779cd51c`
         - or cli: `iexec deal show 0x37957105bde93f73cb7e1b41bd42b6e5f234da4d2829cc5c575c61a8779cd51c`
-    - debug: `iexec task debug 0x3e2b84316f44614bdbb1817d5106a07b98fbc95d747472bff2a0246b907df732 --logs --chain bellecour`
+    - debug: `iexec task debug 0x0a1b37e8469143fdc0c032ab0df050475d4aeb1eccf41ad28cc044d2f0cefd4f --logs --chain bellecour`
     - !STUCK: stay pending for ever
     - !STUCK: submitting deal stay for ever: 
         - We tried to create the order manually but still the same issue: 
@@ -91,12 +91,37 @@
     - run: `iexec app run --tag tee,scone --workerpool debug-v8-bellecour.main.pools.iexec.eth --watch --chain bellecour`
         - Notice: use prod: `prod-v8-bellecour.main.pools.iexec.eth`
         - Notice: in order to run a TEE-debug app you will also need to select a debug workerpool, use the debug workerpool debug-v8-bellecour.main.pools.iexec.eth.
+- 8. create apporder to enable anyone to launch it: https://protocol.docs.iex.ec/for-developers/advanced/manage-your-apporders
+
+## Secret
+
+- attach a secret: 
+    - more info: https://protocol.docs.iex.ec/for-developers/confidential-computing/access-confidential-assets/app-developer-secret
+    - usage: ex use IEXEC_APP_DEVELOPER_SECRET to store private key of the wallet of the application, it would allow to handle chain interaction inside the enclave.
+    - need commands `iexec app push-secret`
+- requester secret: 
+    - more info: https://protocol.docs.iex.ec/for-developers/confidential-computing/access-confidential-assets/requester-secrets
+    - usage: backend can use it to pass several secrets to the enclave
+- access confidential dataset: 
+    - more info: https://protocol.docs.iex.ec/for-developers/confidential-computing/access-confidential-assets/sgx-encrypted-dataset
+    - usage: dataprotector
 
 ## Dataset 
 
 - Learn more: https://protocol.docs.iex.ec/for-developers/technical-references/application-io#dataset
 - Important: 
     - The dataset file is downloaded and decrypted on the fly in the IEXEC_IN directory. It gets its name exposed to the application via IEXEC_DATASET_FILENAME.
+
+
+## Debug
+
+- only wallet that execute task can see debug
+    - so when using a custom wallet that execute backend action:
+        - create a iexec wallet from the private key `iexec wallet import 0x..`
+        - debug with this wallet: `iexec task debug 0x7d1dca8652e2094f569a3ddff900893875a61c6290cfcffdac55f230d831b560 --logs --chain bellecour`
+        - local check: `ls /home/codespace/.ethereum/keystore/`
+- api do check apporders: https://api.market.v8-bellecour.iex.ec/docs
+    - ex: https://api.market.v8-bellecour.iex.ec/apporders?chainId=134&app=0x78c75A02D05977BF6C6766a31a9F21304C48Ce41&workerpool=0xdb214a4a444d176e22030be1ed89da1b029320f2
 
 ## how it works
 
